@@ -19,8 +19,8 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    defaultConfig {
+        multiDexEnabled true
     }
 
     compileOptions {
@@ -38,18 +38,15 @@ dependencies {
 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation "com.squareup.okhttp3:logging-interceptor:$httpLogging"
     implementation "com.google.android.material:material:$support"
     implementation "androidx.appcompat:appcompat:$support"
     implementation "androidx.cardview:cardview:$support"
     implementation "androidx.recyclerview:recyclerview:$support"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
-    implementation "androidx.legacy:legacy-support-v4:$support"
 
-    // Arch
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$arch"
-    implementation "androidx.lifecycle:lifecycle-runtime:$arch"
-    implementation "androidx.lifecycle:lifecycle-extensions:$arch"
+
+
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit"

@@ -40,4 +40,6 @@ ext {
     rxJavaVersion = '2.1.4'
     rxAndroidVersion = '2.0.1'
     rxRelayVersion = '2.0.0'
+    httpLogging = '3.10.0'
+    butterKnife = '8.8.1'
 }
