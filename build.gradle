@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    support = "1.0.0"
+    constraintlayout = "2.0.0-alpha2"
+    arch = "2.0.0"
+    retrofit = "2.3.0"
+    constraintLayout = "1.0.2"
+    min_sdk_version = 21
+    max_sdk_version = 28
+    compile_sdk = 28
+    version_code = 1
+    version_name =  "1.0"
+    rxJavaVersion = '2.1.4'
+    rxAndroidVersion = '2.0.1'
+    rxRelayVersion = '2.0.0'
+}
