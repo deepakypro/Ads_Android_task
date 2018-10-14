@@ -1,7 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="match_parent"
+  android:background="@color/background">
 
+  <ImageView
+    android:id="@+id/mainImage"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+
+    app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
+
+  <RelativeLayout
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/mainImage">
+
+    <TextView
+      android:id="@+id/title"
+      android:textStyle="bold"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+
+      android:textColor="@color/black"
+      android:textSize="24sp"
+      />
+
+    <TextView
+      android:id="@+id/summary"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/title"
+
+
+      android:textSize="@dimen/textspace16sp"/>
+
+    <TextView
+      android:id="@+id/promotedBy"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/dimen8dp"
+      android:layout_alignParentEnd="true"
+      android:layout_below="@+id/summary"
+
+      android:textColor="@color/primaryColor"/>
+
+    <Button
+      android:id="@+id/close"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/callToAction"
+      android:paddingStart="@dimen/dimen8dp"
+      android:background="@color/primaryColor"
+      android:gravity="start|center_vertical"
+      android:text="Close"
+      android:textColor="@color/white"/>
+    <Button
+      android:id="@+id/callToAction"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:paddingStart="@dimen/dimen8dp"
+      android:background="@color/secondaryColor"
+      android:gravity="start|center_vertical"
+      android:text="@string/learn_more"
+      android:textColor="@color/white"/>
+  </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

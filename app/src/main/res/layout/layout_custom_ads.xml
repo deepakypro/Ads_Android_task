@@ -1,7 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
+<android.support.v7.widget.CardView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
-  android:layout_height="match_parent">
+  android:layout_height="240dp"
+  android:layout_marginBottom="@dimen/dimen8dp"
+  android:layout_marginStart="@dimen/dimen8dp"
+  android:layout_marginEnd="@dimen/dimen8dp"
+  app:cardCornerRadius="@dimen/cardrad"
+  app:cardElevation="@dimen/cardevel"
+  >
 
-</LinearLayout>
+  <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="240dp"
+    android:orientation="vertical">
+
+
+    <TextView
+      android:id="@+id/title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/dimen8dp"
+      android:layout_marginStart="@dimen/dimen8dp"/>
+
+    <TextView
+      android:id="@+id/summary"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen8dp"
+      android:layout_below="@+id/title"/>
+
+    <TextView
+      android:id="@+id/promotedBy"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/dimen8dp"
+      android:layout_alignParentEnd="true"
+      android:layout_below="@+id/title"
+      android:textColor="@color/primaryColor"/>
+
+    <ImageView
+
+      android:id="@+id/mainImage"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@+id/summary"
+      android:scaleType="centerCrop"/>
+
+    <Button
+      android:id="@+id/callToAction"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:background="@color/secondaryColor"/>
+  </RelativeLayout>
+</android.support.v7.widget.CardView>
+  <!--<TextView-->
+  <!--android:layout_width="match_parent"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:id="@+id/title"/>-->
+
+  <!--<TextView-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:id="@+id/summary"/>-->
+
+  <!--<TextView-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:id="@+id/promotedBy"/>-->
+
+  <!--<Button-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:id="@+id/callToAction"/>-->
+
+  <!--<ImageView-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:id="@+id/iconImage"/>-->
+  <!--<ImageView-->
+  <!--android:layout_width="wrap_content"-->
+  <!--android:layout_height="wrap_content"-->
+  <!--android:id="@+id/mainImage"/>-->

@@ -31,34 +31,43 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation "com.android.support:design:$androidSupport"
+    implementation "com.android.support:recyclerview-v7:$androidSupport"
+    implementation "com.android.support:cardview-v7:$androidSupport"
+    implementation "com.android.support:appcompat-v7:$androidSupport"
+    implementation "com.android.support.constraint:constraint-layout:$constraintlayout"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    implementation ("com.jakewharton:butterknife:$butterKnife"){
+    implementation("com.jakewharton:butterknife:$butterKnife") {
         exclude module: 'support-compat'
     }
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnife"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.squareup.okhttp3:logging-interceptor:$httpLogging"
-    implementation "com.google.android.material:material:$support"
-    implementation "androidx.appcompat:appcompat:$support"
-    implementation "androidx.cardview:cardview:$support"
-    implementation "androidx.recyclerview:recyclerview:$support"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+//    implementation "com.google.android.material:material:$support"
+//    implementation "androidx.appcompat:appcompat:$support"
+//    implementation "androidx.cardview:cardview:$support"
+//    implementation "androidx.recyclerview:recyclerview:$support"
+//    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
 
     implementation "com.squareup.picasso:picasso:$picasso"
 
-    implementation(name:'adsnative-sdk-3.1.2', ext:'aar')
+    implementation(name: 'adsnative-sdk-3.1.2', ext: 'aar')
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
 
-
+    implementation("com.google.android.gms:play-services-ads:$googleAds") {
+        exclude module: 'support-compat'
+    }
+    implementation("com.google.android.gms:play-services-location:$googleLocation") {
+        exclude module: 'support-compat'
+    }
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     implementation "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
