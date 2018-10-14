@@ -6,13 +6,14 @@
   android:orientation="vertical">
 
   <android.support.v7.widget.CardView
-    android:id="@+id/cardview"
     style="@style/rapple_effect"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:id="@+id/cardview"
     android:layout_marginTop="@dimen/dimen8dp"
     android:layout_marginBottom="8dp"
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
     app:cardCornerRadius="2dp"
     app:cardElevation="4dp">
 
@@ -72,6 +73,7 @@
 
       <ImageView
         android:id="@+id/imv"
+        android:adjustViewBounds="true"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_below="@+id/line_lv"/>

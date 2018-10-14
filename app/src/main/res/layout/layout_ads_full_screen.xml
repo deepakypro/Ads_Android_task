@@ -11,7 +11,7 @@
     android:id="@+id/mainImage"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-
+    android:adjustViewBounds="true"
     app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.5"
@@ -44,7 +44,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_below="@+id/title"
-
+      android:gravity="center"
 
       android:textSize="@dimen/textspace16sp"/>
 
@@ -55,7 +55,7 @@
       android:layout_marginEnd="@dimen/dimen8dp"
       android:layout_alignParentEnd="true"
       android:layout_below="@+id/summary"
-
+      android:gravity="center"
       android:textColor="@color/primaryColor"/>
 
     <Button
@@ -63,9 +63,9 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_above="@+id/callToAction"
-      android:paddingStart="@dimen/dimen8dp"
+
       android:background="@color/primaryColor"
-      android:gravity="start|center_vertical"
+      android:gravity="center"
       android:text="Close"
       android:textColor="@color/white"/>
     <Button
@@ -73,9 +73,9 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
-      android:paddingStart="@dimen/dimen8dp"
       android:background="@color/secondaryColor"
-      android:gravity="start|center_vertical"
+      android:gravity="center"
+
       android:text="@string/learn_more"
       android:textColor="@color/white"/>
   </RelativeLayout>
