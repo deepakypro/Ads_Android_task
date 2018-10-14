@@ -36,6 +36,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    implementation ("com.jakewharton:butterknife:$butterKnife"){
+        exclude module: 'support-compat'
+    }
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnife"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.squareup.okhttp3:logging-interceptor:$httpLogging"
@@ -45,8 +49,9 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$support"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
 
+    implementation "com.squareup.picasso:picasso:$picasso"
 
-
+    implementation(name:'adsnative-sdk-3.1.2', ext:'aar')
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit"

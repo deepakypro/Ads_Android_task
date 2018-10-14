@@ -4,6 +4,7 @@ package com.losers.ads_android_task.Interface;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
+import com.losers.ads_android_task.Network.ApiResponse.ComicResponse;
 import com.losers.ads_android_task.Network.NetworkClient;
 import com.losers.ads_android_task.Network.NetworkInterface;
 import com.losers.ads_android_task.R;
@@ -21,7 +22,7 @@ import retrofit2.Response;
 
 interface ComicListInterface {
 
-  void comicList(final int comicNumber);
+  void comicList(final int comicNumber,final boolean isRefresh);
 }
 
 public class ComicListPresenter implements ComicListInterface {
@@ -34,7 +35,7 @@ public class ComicListPresenter implements ComicListInterface {
     this.mCommonBaseView = mCommonBaseView;
   }
 
-  public Observable<Object> getComicObservable(final int comicNumber) {
+  public Observable<ComicResponse> getComicObservable(final int comicNumber) {
     return NetworkClient
         .getRetrofit()
         .create(NetworkInterface.class)
@@ -43,22 +44,12 @@ public class ComicListPresenter implements ComicListInterface {
         .observeOn(AndroidSchedulers.mainThread());
   }
 
-//  private void fa(){
-//    List<Object> mObjectList=new ArrayList<>();
-//    Observable.range(1, 50)
-//        .flatMap(index ->      // for every index make new request
-//            getComicObservable(index) // this shall return Observable<Response>
-//                .retry(2)      // on error => retry this request N times
-//        )
-//        .subscribe(response -> mCommonBaseView.onSuccess(response,null,null));
-//  }
-
-
   @SuppressLint("CheckResult")
   @Override
-  public void comicList(int comicNumber) {
-    List<Object> mObjectList = new ArrayList<>();
-    Observable.range(1, 50)
+  public void comicList(int comicNumber,final boolean isRefresh) {
+    int lastcomicCount = comicNumber + 10;
+    List<ComicResponse> mObjectList = new ArrayList<>();
+    Observable.range(comicNumber, lastcomicCount)
         .flatMap(index ->      // for every index make new request
                 getComicObservable(index) // this shall return Observable<Response>
                     .retry(1)      // on error => retry this request N times
@@ -78,27 +69,12 @@ public class ComicListPresenter implements ComicListInterface {
 
           @Override
           public void onComplete() {
-
+            mCommonBaseView.onSuccess(mObjectList,isRefresh);
             Log.d("TAGDEepak", mObjectList.size() + " ");
           }
         });
 
-//    getComicObservable(comicNumber).subscribeWith(new DisposableObserver<Object>() {
-//      @Override
-//      public void onNext(Object o) {
-//        Log.d("TAGDEepak", o + " ");
-//      }
-//
-//      @Override
-//      public void onError(Throwable e) {
-//
-//      }
-//
-//      @Override
-//      public void onComplete() {
-//
-//      }
-//    });
+
   }
 
 

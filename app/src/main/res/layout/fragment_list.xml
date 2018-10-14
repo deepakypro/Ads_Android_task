@@ -1,14 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context=".Fragment.ListFragment">
 
-  <!-- TODO: Update blank fragment layout -->
-  <TextView
+  <ListView
+    android:id="@+id/listview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="@string/hello_blank_fragment"/>
+    android:layout_marginTop="8dp"
+    android:layout_above="@+id/load_more">
 
-</FrameLayout>
+  </ListView>
+
+  <RelativeLayout
+    android:id="@+id/load_more"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_alignParentBottom="true"
+    android:background="@color/background"
+    android:visibility="gone">
+
+    <ProgressBar
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+
+      android:layout_centerInParent="true"/>
+  </RelativeLayout>
+</RelativeLayout>

@@ -6,7 +6,7 @@ public interface CommonBaseView {
 
   void onTimeout();
 
-  void onSuccess(final Object object, final Object object2, final Object object3);
+  void onSuccess(final Object object,final Object object1);
 
   void onError(Throwable e);
 }

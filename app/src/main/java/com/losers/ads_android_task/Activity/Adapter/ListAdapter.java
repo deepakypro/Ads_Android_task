@@ -12,52 +12,48 @@ import android.widget.TextView;
 import com.google.android.material.snackbar.Snackbar;
 import com.losers.ads_android_task.Network.ApiResponse.ComicResponse;
 import com.losers.ads_android_task.R;
+import com.losers.ads_android_task.Utils.MiscUtils;
 import java.util.ArrayList;
+import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnClickListener{
+public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnClickListener {
 
-  private ArrayList<ComicResponse> dataSet;
-  Context mContext;
+  private List<ComicResponse> dataSet;
+  private Context mContext;
+  private final MiscUtils mMiscUtils = new MiscUtils();
 
   // View lookup cache
   private static class ViewHolder {
-    TextView txtName;
-    TextView txtType;
-    TextView txtVersion;
-    ImageView info;
+
+    TextView mNameTv;
+    TextView mDateTv;
+    TextView mNum_tv;
+    ImageView mImv;
   }
 
 
-
-  public ListAdapter(ArrayList<ComicResponse> data, Context context) {
-    super(context, R.layout.row_item, data);
+  public ListAdapter(List<ComicResponse> data, Context context) {
+    super(context, R.layout.layout_comic_adapter, data);
     this.dataSet = data;
-    this.mContext=context;
+    this.mContext = context;
 
   }
 
 
   @Override
   public void onClick(View v) {
+    int position = (Integer) v.getTag();
+    Object object = getItem(position);
+    ComicResponse ComicResponse = (ComicResponse) object;
 
+    switch (v.getId()) {
 
-    int position=(Integer) v.getTag();
-    Object object= getItem(position);
-    ComicResponse ComicResponse=(ComicResponse)object;
-
-
-
-
-    switch (v.getId())
-    {
-
-      case R.id.item_info:
-
-        Snackbar.make(v, "Release date " +ComicResponse.getFeature(), Snackbar.LENGTH_LONG)
-            .setAction("No action", null).show();
-
-        break;
-
+//      case R.id.item_info:
+//
+//        Snackbar.make(v, "Release date " +ComicResponse.getFeature(), Snackbar.LENGTH_LONG)
+//            .setAction("No action", null).show();
+//
+//        break;
 
     }
 
@@ -77,21 +73,20 @@ public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnC
 
     if (convertView == null) {
 
-
       viewHolder = new ViewHolder();
       LayoutInflater inflater = LayoutInflater.from(getContext());
-      convertView = inflater.inflate(R.layout.row_item, parent, false);
-      viewHolder.txtName = (TextView) convertView.findViewById(R.id.name);
-      viewHolder.txtType = (TextView) convertView.findViewById(R.id.type);
-      viewHolder.txtVersion = (TextView) convertView.findViewById(R.id.version_number);
-      viewHolder.info = (ImageView) convertView.findViewById(R.id.item_info);
+      convertView = inflater.inflate(R.layout.layout_comic_adapter, parent, false);
+      viewHolder.mNameTv = (TextView) convertView.findViewById(R.id.title_tv);
+      viewHolder.mDateTv = (TextView) convertView.findViewById(R.id.date_tv);
+      viewHolder.mNum_tv = (TextView) convertView.findViewById(R.id.num_tv);
+      viewHolder.mImv = (ImageView) convertView.findViewById(R.id.imv);
 
-      result=convertView;
+      result = convertView;
 
       convertView.setTag(viewHolder);
     } else {
       viewHolder = (ViewHolder) convertView.getTag();
-      result=convertView;
+      result = convertView;
     }
 
 //    Animation animation = AnimationUtils
@@ -99,12 +94,12 @@ public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnC
 //    result.startAnimation(animation);
     lastPosition = position;
 
-
-    viewHolder.txtName.setText(ComicResponse.getName());
-    viewHolder.txtType.setText(ComicResponse.getType());
-    viewHolder.txtVersion.setText(ComicResponse.getVersion_number());
-    viewHolder.info.setOnClickListener(this);
-    viewHolder.info.setTag(position);
+    viewHolder.mNameTv.setText(ComicResponse.getTitle());
+    viewHolder.mDateTv.setText(ComicResponse.getDay());
+    viewHolder.mNum_tv.setText(ComicResponse.getNum() + " ");
+    mMiscUtils.setImage(viewHolder.mImv, ComicResponse.getImg());
+//    viewHolder.info.setOnClickListener(this);
+//    viewHolder.info.setTag(position);
     // Return the completed view to render on screen
     return convertView;
   }
