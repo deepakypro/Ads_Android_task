@@ -12,7 +12,9 @@ import static com.losers.ads_android_task.Utils.Constants.TRANSCRIPT;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,8 @@ public class ListFragment extends Fragment implements CommonBaseView, ListAdapte
 
   @BindView(R.id.progressbar)
   ProgressBar mProgressbar;
+
+  private boolean isFirstQueryHit = false;
   private List<ComicResponse> mComicResponses = new ArrayList<>();
   // TODO: Rename parameter arguments, choose names that match
   // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,7 +69,7 @@ public class ListFragment extends Fragment implements CommonBaseView, ListAdapte
   private String mParam1;
   private String mParam2;
 
-  ComicListPresenter mComicListPresenter;
+  private ComicListPresenter mComicListPresenter;
   Unbinder mUnbinder;
 
   public ListFragment() {
@@ -128,8 +132,12 @@ public class ListFragment extends Fragment implements CommonBaseView, ListAdapte
       public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount,
           int totalItemCount) {
         if (firstVisibleItem + visibleItemCount > totalItemCount - 2) {
-          showLoadMore();
-          getData(true);
+
+          if (isFirstQueryHit) {
+            showLoadMore();
+            getData(true);
+          }
+
 
         }
       }
@@ -196,10 +204,9 @@ public class ListFragment extends Fragment implements CommonBaseView, ListAdapte
       mProgressbar.setVisibility(View.GONE);
     }
     isApiRequestActive = false;
+    isFirstQueryHit = true;
 
     hideLoadMore();
-
-    boolean isRefresh = (Boolean) object1;
 
     mComicResponses.addAll((List<ComicResponse>) object);
 
@@ -253,6 +260,8 @@ public class ListFragment extends Fragment implements CommonBaseView, ListAdapte
     mIntent.putExtra(NEWS, news);
     startActivity(mIntent);
   }
+
+
 
   private void inCreaseClickCount() {
     int count = DetailsComicActivity.sUserClickCountInteger.get();

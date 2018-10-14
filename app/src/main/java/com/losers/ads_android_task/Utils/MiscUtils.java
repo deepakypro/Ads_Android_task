@@ -33,4 +33,8 @@ public class MiscUtils {
         });
 
   }
+
+  public static int getListCount(){
+    return 10;
+  }
 }

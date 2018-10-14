@@ -1,5 +1,7 @@
 package com.losers.ads_android_task.Interface;
 
+import static com.losers.ads_android_task.Utils.MiscUtils.getListCount;
+
 import android.annotation.SuppressLint;
 import android.util.Log;
 import com.losers.ads_android_task.Network.ApiResponse.ComicResponse;
@@ -14,10 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 interface ComicGridInterface {
 
-  void comicList(final int comicNumber,final boolean isRefresh);
+  void comicGridList(final int comicNumber, final boolean isRefresh);
 }
 
 public class ComicGridPresenter implements ComicGridInterface {
@@ -41,16 +42,14 @@ public class ComicGridPresenter implements ComicGridInterface {
 
   @SuppressLint("CheckResult")
   @Override
-  public void comicList(int comicNumber,final boolean isRefresh) {
-    int lastcomicCount = comicNumber + 10;
+  public void comicGridList(int comicNumber, final boolean isRefresh) {
+
+
     List<ComicResponse> mObjectList = new ArrayList<>();
 
-
-
-    Observable.range(comicNumber, lastcomicCount)
+    Observable.range(comicNumber+1, getListCount())
         .concatMap(index ->
                 getComicObservable(index)
-
                     .map(response -> mObjectList.add(response)),
             1
         )
@@ -67,11 +66,10 @@ public class ComicGridPresenter implements ComicGridInterface {
 
           @Override
           public void onComplete() {
-            mCommonBaseView.onSuccess(mObjectList,isRefresh);
+            mCommonBaseView.onSuccess(mObjectList, isRefresh);
 
           }
         });
-
 
 
   }

@@ -25,8 +25,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import com.adsnative.ads.ANListAdapter;
-import com.losers.ads_android_task.Activity.Adapter.ListAdapter;
-import com.losers.ads_android_task.Activity.Adapter.ListAdapter.ListAdapterListener;
+import com.losers.ads_android_task.Activity.Adapter.GridAdapter;
+import com.losers.ads_android_task.Activity.Adapter.GridAdapter.ListAdapterListener;
 import com.losers.ads_android_task.Activity.DetailsComicActivity;
 import com.losers.ads_android_task.Interface.ComicGridPresenter;
 import com.losers.ads_android_task.Interface.CommonBaseView;
@@ -47,6 +47,7 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
   ProgressBar mProgressbar;
   private boolean hasBeenVisibleOnce = false;
   private boolean isApiRequestActive = false;
+  private boolean isFirstQueryHit = false;
   private List<ComicResponse> mComicResponses = new ArrayList<>();
   private ComicGridPresenter mComicGridPresenter;
   // TODO: Rename parameter arguments, choose names that match
@@ -58,7 +59,7 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
   @BindView(R.id.load_more)
   RelativeLayout mLoadMore;
 
-  private ListAdapter mListAdapter;
+  private GridAdapter mListAdapter;
   private ANListAdapter anListAdapter;
   private int mItemCount = 0;
   // TODO: Rename and change types of parameters
@@ -122,8 +123,11 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
       public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount,
           int totalItemCount) {
         if (firstVisibleItem + visibleItemCount > totalItemCount - 2) {
-          showLoadMore();
-          getData(true);
+          if (isFirstQueryHit) {
+            showLoadMore();
+            getData(true);
+          }
+
 
         }
       }
@@ -144,26 +148,9 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
     }
   }
 
-//  private void setAdapter() {
-//    mListAdapter = new ListAdapter(mComicResponses, getContext(),this::onClick);
-//
-//    anListAdapter = new ANListAdapter(getContext(), mListAdapter,
-//        ADS_UNIT, AdsClass.getClientPosition());
-//
-//    // Set your original view's adapter to ANListAdapter instance
-//
-//    mGrid.setAdapter(anListAdapter);
-//
-//    // Register the renderer with the ANListAdapter
-//    anListAdapter.registerViewBinder(AdsClass.getAnAdViewBinder());
-//    // Start loading ads
-//    anListAdapter.loadAds();
-//
-////    mListview.setAdapter(mListAdapter);
-//  }
 
   private void setAdapter() {
-    mListAdapter = new ListAdapter(mComicResponses, getContext(), this::onClick);
+    mListAdapter = new GridAdapter(mComicResponses, getContext(), this::onClick);
 
     anListAdapter = new ANListAdapter(getContext(), mListAdapter,
         ADS_UNIT, AdsClass.getClientPosition());
@@ -173,7 +160,7 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
     mGrid.setAdapter(anListAdapter);
 
     // Register the renderer with the ANListAdapter
-    anListAdapter.registerViewBinder(AdsClass.getAnAdViewBinder());
+    anListAdapter.registerViewBinder(AdsClass.getGridAnAdViewBinder());
     // Start loading ads
     anListAdapter.loadAds();
 
@@ -195,7 +182,7 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
 
 //    if (!isApiRequestActive) {
     isApiRequestActive = true;
-    mComicGridPresenter.comicList(mItemCount, isRefresh);
+    mComicGridPresenter.comicGridList(mItemCount, isRefresh);
     mItemCount += 10;
 //    }
 
@@ -220,6 +207,8 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
     if (mProgressbar != null && mProgressbar.getVisibility() == View.VISIBLE) {
       mProgressbar.setVisibility(View.GONE);
     }
+
+    isFirstQueryHit = true;
     hideLoadMore();
     isApiRequestActive = false;
     boolean isRefresh = (Boolean) object1;

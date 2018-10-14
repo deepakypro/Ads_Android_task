@@ -11,16 +11,24 @@ public class AdsClass {
     return new ANAdViewBinder.Builder(R.layout.layout_custom_ads)
         .bindTitle(R.id.title)
         .bindSummary(R.id.summary)
-
+        .bindIconImage(R.id.iconImage)
         .bindMainImage(R.id.mainImage)
-        .bindCallToAction(R.id.callToAction)
+
         .bindPromotedBy(R.id.promotedBy)
+
+        .build();
+  }
+
+  public static ANAdViewBinder getGridAnAdViewBinder() {
+    return new ANAdViewBinder.Builder(R.layout.layout_custom_grid_ads)
+        .bindTitle(R.id.title)
+        .bindMainImage(R.id.mainImage)
 
         .build();
   }
 
   public static ClientPositions getClientPosition() {
     return ANAdPositions.clientPositioning().
-        addFixedPosition(5).addFixedPosition(2);
+        addFixedPosition(5).enableRepeatingPositions(10);
   }
 }

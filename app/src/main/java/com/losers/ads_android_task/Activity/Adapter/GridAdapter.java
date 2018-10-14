@@ -5,26 +5,22 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.losers.ads_android_task.Network.ApiResponse.ComicResponse;
 import com.losers.ads_android_task.R;
 import com.losers.ads_android_task.Utils.MiscUtils;
 import de.hdodenhof.circleimageview.CircleImageView;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnClickListener {
+public class GridAdapter  extends ArrayAdapter<ComicResponse> implements View.OnClickListener {
 
   private List<ComicResponse> dataSet;
   private Context mContext;
   private final MiscUtils mMiscUtils = new MiscUtils();
-  private ListAdapterListener mListAdapterListener;
+  private GridAdapter.ListAdapterListener mListAdapterListener;
 
   // View lookup cache
   private static class ViewHolder {
@@ -34,15 +30,14 @@ public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnC
     TextView mDateTv;
     TextView mNum_tv;
     ImageView mImv;
-    CircleImageView mIconImv;
-    TextView mAltTv;
-    TextView mNewsTv;
+
+
   }
 
 
-  public ListAdapter(List<ComicResponse> data, Context context,
-      ListAdapterListener mListAdapterListener) {
-    super(context, R.layout.layout_comic_adapter, data);
+  public GridAdapter(List<ComicResponse> data, Context context,
+      GridAdapter.ListAdapterListener mListAdapterListener) {
+    super(context, R.layout.layout_grid_adapter, data);
     this.dataSet = data;
     this.mContext = context;
     this.mListAdapterListener = mListAdapterListener;
@@ -82,28 +77,26 @@ public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnC
     // Get the data item for this position
     ComicResponse ComicResponse = getItem(position);
     // Check if an existing view is being reused, otherwise inflate the view
-    ViewHolder viewHolder; // view lookup cache stored in tag
+    GridAdapter.ViewHolder viewHolder; // view lookup cache stored in tag
 
     final View result;
 
     if (convertView == null) {
 
-      viewHolder = new ViewHolder();
+      viewHolder = new GridAdapter.ViewHolder();
       LayoutInflater inflater = LayoutInflater.from(getContext());
-      convertView = inflater.inflate(R.layout.layout_comic_adapter, parent, false);
+      convertView = inflater.inflate(R.layout.layout_grid_adapter, parent, false);
       viewHolder.mNameTv = (TextView) convertView.findViewById(R.id.title_tv);
       viewHolder.mDateTv = (TextView) convertView.findViewById(R.id.date_tv);
       viewHolder.mNum_tv = (TextView) convertView.findViewById(R.id.num_tv);
       viewHolder.mImv = (ImageView) convertView.findViewById(R.id.imv);
       viewHolder.mCardView = convertView.findViewById(R.id.cardview);
-      viewHolder.mAltTv = convertView.findViewById(R.id.alt_tv);
-      viewHolder.mIconImv = convertView.findViewById(R.id.icon_image);
-      viewHolder.mNewsTv = convertView.findViewById(R.id.news_tv);
+
       result = convertView;
 
       convertView.setTag(viewHolder);
     } else {
-      viewHolder = (ViewHolder) convertView.getTag();
+      viewHolder = (GridAdapter.ViewHolder) convertView.getTag();
       result = convertView;
     }
 
@@ -117,9 +110,7 @@ public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnC
         ComicResponse.getYear()));
     viewHolder.mNum_tv.setText(ComicResponse.getNum() + " ");
     mMiscUtils.setImage(viewHolder.mImv, ComicResponse.getImg());
-    mMiscUtils.setImage(viewHolder.mIconImv, ComicResponse.getImg());
-    viewHolder.mNewsTv.setText(ComicResponse.getNews());
-    viewHolder.mAltTv.setText(ComicResponse.getAlt());
+
     viewHolder.mCardView.setOnClickListener(this);
     viewHolder.mCardView.setTag(position);
     // Return the completed view to render on screen
@@ -181,3 +172,4 @@ public class ListAdapter extends ArrayAdapter<ComicResponse> implements View.OnC
     return day + " , " + mon + " , " + year;
   }
 }
+

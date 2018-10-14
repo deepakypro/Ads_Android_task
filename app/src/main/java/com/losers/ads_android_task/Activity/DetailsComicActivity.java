@@ -13,10 +13,12 @@ import static com.losers.ads_android_task.Utils.Constants.TRANSCRIPT;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import butterknife.BindView;
@@ -26,13 +28,35 @@ import butterknife.Unbinder;
 import com.adsnative.ads.ANAdListener;
 import com.adsnative.ads.ANNativeAd;
 import com.adsnative.ads.NativeAdUnit;
+import com.losers.ads_android_task.Interface.CommonBaseView;
+import com.losers.ads_android_task.Interface.DetailsComicPresenter;
 import com.losers.ads_android_task.R;
 import com.losers.ads_android_task.Utils.AdsClass;
 import com.losers.ads_android_task.Utils.MiscUtils;
+import io.reactivex.Observable;
+import io.reactivex.Single;
+import io.reactivex.functions.Predicate;
+import io.reactivex.internal.operators.single.SingleObserveOn;
+import io.reactivex.observers.DisposableMaybeObserver;
+import io.reactivex.observers.DisposableObserver;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class DetailsComicActivity extends AppCompatActivity {
+public class DetailsComicActivity extends AppCompatActivity implements CommonBaseView {
 
+  @BindView(R.id.num_tv)
+  TextView mNumTv;
+  @BindView(R.id.date_text_tv)
+  TextView mDateTextTv;
+  @BindView(R.id.alt_text_tv)
+  TextView mAltTextTv;
+  @BindView(R.id.news_text_tv)
+  TextView mNewsTextTv;
+  @BindView(R.id.transcript_text_tv)
+  TextView mTranscriptTextTv;
+  @BindView(R.id.close)
+  Button mClose;
+  @BindView(R.id.relativeLayout)
+  RelativeLayout mRelativeLayout;
   private boolean isAdsShown = false;
   public static AtomicInteger sUserClickCountInteger = new AtomicInteger(0);
   @BindView(R.id.mainImage)
@@ -68,7 +92,7 @@ public class DetailsComicActivity extends AppCompatActivity {
   private final MiscUtils mMiscUtils = new MiscUtils();
   Unbinder mUnbinder;
   private View mComicView, mAdsView;
-
+  private DetailsComicPresenter mDetailsComicPresenter;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -77,20 +101,8 @@ public class DetailsComicActivity extends AppCompatActivity {
     mUnbinder = ButterKnife.bind(this);
     mComicView = findViewById(R.id.layout_comic_view);
     mAdsView = findViewById(R.id.layout_ads_view);
-
-    if (isTimeToShowAdsToUser()) {
-      mComicView.setVisibility(View.GONE);
-      mAdsView.setVisibility(View.VISIBLE);
-
-    } else {
-      mAdsView.setVisibility(View.GONE);
-      mComicView.setVisibility(View.VISIBLE);
-    }
-
-    if (isAdsShown) {
-      loadAds();
-    }
-
+    mDetailsComicPresenter = new DetailsComicPresenter(this);
+    mDetailsComicPresenter.setCount(sUserClickCountInteger.get());
     Bundle mBundle = getIntent().getExtras();
     if (mBundle == null) {
       return;
@@ -110,7 +122,7 @@ public class DetailsComicActivity extends AppCompatActivity {
     mAltTv.setText(alt);
     mNewsTv.setText(news);
     mTranscriptTv.setText(transcript);
-
+    mNumTv.setText(num + "");
     mMiscUtils.setImage(mImageview, image);
 
     mImageview.setOnClickListener(
@@ -126,13 +138,6 @@ public class DetailsComicActivity extends AppCompatActivity {
 
   }
 
-  private boolean isTimeToShowAdsToUser() {
-    if ((sUserClickCountInteger.get() % 5) == 0) {
-      isAdsShown = true;
-      return true;
-    }
-    return false;
-  }
 
   private void loadAds() {
     mNativeAd = new ANNativeAd(this, ADS_UNIT);
@@ -198,5 +203,32 @@ public class DetailsComicActivity extends AppCompatActivity {
   public void onViewClicked() {
     mAdsView.setVisibility(View.GONE);
     mComicView.setVisibility(View.VISIBLE);
+  }
+
+  @Override
+  public void onUnknownError(String error) {
+
+  }
+
+  @Override
+  public void onTimeout() {
+
+  }
+
+  @Override
+  public void onSuccess(Object object, Object object1) {
+    isAdsShown = true;
+    mComicView.setVisibility(View.GONE);
+    mAdsView.setVisibility(View.VISIBLE);
+    if (isAdsShown) {
+      loadAds();
+      mNativeAd.loadAd();
+    }
+
+  }
+
+  @Override
+  public void onError(Throwable e) {
+
   }
 }

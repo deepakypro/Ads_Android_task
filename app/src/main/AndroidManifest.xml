@@ -19,7 +19,8 @@
     android:theme="@style/AppTheme"
     android:usesCleartextTraffic="true"
     tools:replace="android:appComponentFactory">
-    <activity android:name=".Activity.MainActivity">
+    <activity android:name=".Activity.MainActivity"
+      android:configChanges="orientation|screenSize">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
@@ -35,7 +36,8 @@
       android:name="com.google.android.gms.ads.APPLICATION_ID"
       android:value="ca-app-pub-3940256099942544~3347511713"/>
 
-    <activity android:name=".Activity.DetailsComicActivity"/>
+    <activity android:name=".Activity.DetailsComicActivity"
+      android:configChanges="orientation|screenSize"/>
     <activity android:name=".Activity.Main2Activity">
     </activity>
   </application>

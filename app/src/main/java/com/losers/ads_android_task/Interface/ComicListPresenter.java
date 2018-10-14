@@ -1,6 +1,8 @@
 package com.losers.ads_android_task.Interface;
 
 
+import static com.losers.ads_android_task.Utils.MiscUtils.getListCount;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
@@ -35,6 +37,9 @@ public class ComicListPresenter implements ComicListInterface {
   public ComicListPresenter(CommonBaseView mCommonBaseView) {
     this.mCommonBaseView = mCommonBaseView;
   }
+  public ComicListPresenter( ) {
+
+  }
 
   public Observable<ComicResponse> getComicObservable(final int comicNumber) {
     return NetworkClient
@@ -48,11 +53,11 @@ public class ComicListPresenter implements ComicListInterface {
   @SuppressLint("CheckResult")
   @Override
   public void comicList(int comicNumber, final boolean isRefresh) {
-    int lastcomicCount = comicNumber + 10;
-    Log.d("TAGDEepakaaaaa", comicNumber + " " + lastcomicCount);
+
+
     List<ComicResponse> mObjectList = new ArrayList<>();
 
-    Observable.range(comicNumber + 1, lastcomicCount)
+    Observable.range(comicNumber + 1, getListCount())
         .concatMap(index ->
                 getComicObservable(index)
 
@@ -73,9 +78,10 @@ public class ComicListPresenter implements ComicListInterface {
           @Override
           public void onComplete() {
             mCommonBaseView.onSuccess(mObjectList, isRefresh);
-            Log.d("TAGDEepak", mObjectList.size() + " ");
+
           }
         });
+
 
 
   }
@@ -86,4 +92,7 @@ public class ComicListPresenter implements ComicListInterface {
       mCompositeDisposable.clear();
     }
   }
+
+
+
 }

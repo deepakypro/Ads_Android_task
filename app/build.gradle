@@ -31,43 +31,66 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //android support libraries
     implementation "com.android.support:design:$androidSupport"
     implementation "com.android.support:recyclerview-v7:$androidSupport"
     implementation "com.android.support:cardview-v7:$androidSupport"
     implementation "com.android.support:appcompat-v7:$androidSupport"
     implementation "com.android.support.constraint:constraint-layout:$constraintlayout"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    //unit test
+    testImplementation "junit:junit:$jUnit"
+    androidTestImplementation "com.android.support.test:runner:$supportTest"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso"
+    androidTestImplementation "org.mockito:mockito-core:$mockito"
+
+
+    //butterknife
     implementation("com.jakewharton:butterknife:$butterKnife") {
         exclude module: 'support-compat'
     }
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnife"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.squareup.okhttp3:logging-interceptor:$httpLogging"
+
+    //androidx
 //    implementation "com.google.android.material:material:$support"
 //    implementation "androidx.appcompat:appcompat:$support"
 //    implementation "androidx.cardview:cardview:$support"
 //    implementation "androidx.recyclerview:recyclerview:$support"
 //    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
 
+    //picasso image loading
     implementation "com.squareup.picasso:picasso:$picasso"
 
+    //adsnative ads
     implementation(name: 'adsnative-sdk-3.1.2', ext: 'aar')
 
-    // Retrofit
+    // Retrofit networking
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
 
+    //request logging
+    implementation "com.squareup.okhttp3:logging-interceptor:$httpLogging"
+
+
+    //circleImageview
+    implementation "de.hdodenhof:circleimageview:$circleImageView"
+
+    //google ads
     implementation("com.google.android.gms:play-services-ads:$googleAds") {
         exclude module: 'support-compat'
     }
+
+    //google location
     implementation("com.google.android.gms:play-services-location:$googleLocation") {
         exclude module: 'support-compat'
     }
+
+
+    //rxjava2
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     implementation "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
