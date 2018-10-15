@@ -31,7 +31,7 @@ public class ComicGridPresenter implements ComicGridInterface {
     this.mCommonBaseView = mCommonBaseView;
   }
 
-  public Observable<ComicResponse> getComicObservable(final int comicNumber) {
+  private Observable<ComicResponse> getComicObservable(final int comicNumber) {
     return NetworkClient
         .getRetrofit()
         .create(NetworkInterface.class)
@@ -45,12 +45,17 @@ public class ComicGridPresenter implements ComicGridInterface {
   public void comicGridList(int comicNumber, final boolean isRefresh) {
 
 
+
     List<ComicResponse> mObjectList = new ArrayList<>();
 
-    Observable.range(comicNumber+1, getListCount())
-        .concatMap(index ->
-                getComicObservable(index)
-                    .map(response -> mObjectList.add(response)),
+    Observable.range(comicNumber + 1, getListCount())
+        .concatMap((Integer index) ->
+            {
+              return getComicObservable(index)
+                  .map((ComicResponse response) -> {
+                    return mObjectList.add(response);
+                  });
+            },
             1
         )
         .subscribeWith(new DisposableObserver<Boolean>() {

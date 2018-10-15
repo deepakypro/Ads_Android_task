@@ -61,7 +61,7 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
 
   private GridAdapter mListAdapter;
   private ANListAdapter anListAdapter;
-  private int mItemCount = 0;
+  private int mItemGridCount = 0;
   // TODO: Rename and change types of parameters
   private String mParam1;
   private String mParam2;
@@ -180,11 +180,11 @@ public class GridFragment extends Fragment implements CommonBaseView, ListAdapte
 
   private void getData(boolean isRefresh) {
 
-//    if (!isApiRequestActive) {
+    if (!isApiRequestActive) {
     isApiRequestActive = true;
-    mComicGridPresenter.comicGridList(mItemCount, isRefresh);
-    mItemCount += 10;
-//    }
+    mComicGridPresenter.comicGridList(mItemGridCount, isRefresh);
+    mItemGridCount += 10;
+    }
 
   }
 
