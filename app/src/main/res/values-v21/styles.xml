@@ -1,0 +1,34 @@
+<resources>
+
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/primaryColor</item>
+    <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+    <item name="colorAccent">@color/primaryLightColor</item>
+  </style>
+
+  <style name="toolbarStyle" parent="android:Widget.TextView" >
+
+    <!-- Card background color -->
+    <item name="android:textStyle">bold</item>
+    <!-- Ripple for API 21 of android, and regular selector on older -->
+    <item name="android:layout_width">wrap_content</item>
+    <!-- Resting Elevation from Material guidelines -->
+    <item name="android:layout_height">wrap_content</item>
+    <!-- Add corner Radius -->
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">20sp</item>
+
+  </style>
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+  <style name="rapple_effect">
+    <item name="android:clickable">true</item>
+    <!--<item name="android:stateListAnimator">@animator/touch_to_lift</item>-->
+    <item name="android:focusable">true</item>
+    <item name="android:foreground">?android:attr/selectableItemBackground</item>
+
+  </style>
+</resources>

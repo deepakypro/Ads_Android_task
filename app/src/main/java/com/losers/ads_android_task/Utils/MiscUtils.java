@@ -9,14 +9,14 @@ import com.squareup.picasso.Picasso;
 
 public class MiscUtils {
 
-  public  void setImage(ImageView imageToPicasso, String id) {
+  public static void setImage(ImageView imageToPicasso, int id) {
     if (imageToPicasso == null) {
       return;
     }
 
     Picasso.get()
         .load(id)
-
+        .fit()
         .into(imageToPicasso, new Callback() {
           @Override
           public void onSuccess() {
@@ -34,7 +34,7 @@ public class MiscUtils {
 
   }
 
-  public static int getListCount(){
+  public static int getListCount() {
     return 10;
   }
 }

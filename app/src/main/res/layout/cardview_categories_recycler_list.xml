@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="320dp"
+  android:layout_height="240dp"
+  android:background="@color/background">
+
+
+  <android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/section_recycler_image"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/dimen8dp"
+    android:layout_marginBottom="@dimen/dimen8dp"
+    android:layout_marginEnd="@dimen/dimen8dp"
+    card_view:cardCornerRadius="@dimen/cardrad"
+    card_view:cardElevation="@dimen/cardelev">
+
+    <ImageView
+
+      android:id="@+id/category_recycler_list_imageview"
+
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+
+      <TextView
+        android:id="@+id/category_recycler_list_name"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_alignParentBottom="true"
+        android:padding="4dp"
+        android:maxLength="20"
+
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
+
+
+    </RelativeLayout>
+
+  </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

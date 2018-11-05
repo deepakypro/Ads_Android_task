@@ -1,44 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#c71610</color>
-  <color name="colorPrimaryDark">#8e0000</color>
+  <color name="colorPrimary">#3F51B5</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+
   <color name="black">#000</color>
-  <color name="colorAccent">#c71610</color>
+  <color name="colorAccent">#fff</color>
   <color name="White">#fff</color>
   <color name="choose1">#ff757b</color>
-  <!--<color name="primaryColor">#f6ec50</color>-->
-  <!--<color name="primaryLightColor">#ffff83</color>-->
-  <!--<color name="primaryDarkColor">#c0ba10</color>-->
-  <!--<color name="secondaryColor">#809093</color>-->
-  <!--<color name="secondaryLightColor">#afc0c3</color>-->
-  <!--<color name="secondaryDarkColor">#536365</color>-->
-  <!--<color name="primaryTextColor">#000000</color>-->
-  <!--<color name="secondaryTextColor">#000000</color>-->
 
-  <color name="text_color">#222222</color>
-  <color name="primaryColor">#c71610</color>
-  <color name="primaryDarkColor">#8e0000</color>
-  <color name="secondaryColor">#232a34</color>
-  <color name="secondaryLightColor">#4b525e</color>
-  <color name="secondaryDarkColor">#00000d</color>
   <color name="background">#f4f4f4</color>
+  <color name="splashcolor">#3A3746</color>
   <color name="choose3">#7fd5c3</color>
   <color name="newblack">#3a3844</color>
   <color name="statuscolor">#000</color>
   <color name="gray">#a8a8a8</color>
+  <color name="smallbluerectangle">#2c3138</color>
   <color name="blue">#1d2127</color>
   <color name="pedocolorbox">#3b6b98</color>
-  <color name="yellow">#fbb82d</color>
-  <color name="flatred">#e2343a</color>
+
+
+  <color name="primaryColor">#f6ec50</color>
+  <color name="primaryLightColor">#ffff83</color>
+  <color name="primaryDarkColor">#c0ba10</color>
+  <color name="secondaryColor">#809093</color>
+  <color name="secondaryLightColor">#afc0c3</color>
+  <color name="secondaryDarkColor">#536365</color>
+  <color name="primaryTextColor">#000000</color>
+  <color name="secondaryTextColor">#000000</color>
 
   <color name="lightred">#ff757b</color>
 
   <color name="white">#ffffff</color>
 
+  <color name="pink">#ff5a79</color>
   <color name="red">#ff0000</color>
 
-  <color name="filter_label_normal">#8A8889</color>
-  <color name="filter_label_selected">#221F20</color>
+
   <color name="alarm_title_active">#444444</color>
   <color name="alarm_title_outdated">#888888</color>
   <color name="alarm_details">#888888</color>

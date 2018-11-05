@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".Activity.ProductListActivity">
+
+
+  <androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar2"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen56dp"
+    android:background="@color/primaryColor">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingTop="@dimen/dimen16dp"
+        android:paddingBottom="@dimen/dimen16dp"
+        android:paddingEnd="@dimen/dimen8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_back_black_24dp"/>
+
+      <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:paddingTop="@dimen/dimen16dp"
+        android:paddingBottom="@dimen/dimen16dp"
+        android:paddingStart="@dimen/dimen8dp"
+        android:paddingEnd="@dimen/dimen8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_shuffle_black_24dp"/>
+
+    </RelativeLayout>
+  </androidx.appcompat.widget.Toolbar>
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+  </androidx.recyclerview.widget.RecyclerView>
+</androidx.constraintlayout.widget.ConstraintLayout>

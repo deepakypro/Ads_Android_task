@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView
+  app:cardCornerRadius="@dimen/cardrad"
+  app:cardElevation="@dimen/cardevel"
+  android:layout_marginStart="@dimen/dimen8dp"
+  android:layout_marginEnd="@dimen/dimen8dp"
+  android:layout_marginTop="4dp"
+  android:layout_marginBottom="4dp"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+      android:id="@+id/place_imageview"
+      android:layout_width="match_parent"
+      android:layout_height="120dp"/>
+
+
+    <TextView
+      android:id="@+id/name_tv"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/dimen8dp"
+      android:layout_marginStart="@dimen/dimen8dp"
+      android:layout_marginEnd="@dimen/dimen8dp"
+      android:layout_below="@+id/place_imageview"
+      android:maxLines="2"
+      android:text="AMA Cafe"
+      android:textColor="@color/black"
+      android:textSize="@dimen/textspace16sp"/>
+
+    <TextView
+      android:alpha="0.80"
+      android:textSize="14sp"
+      android:layout_marginStart="@dimen/dimen8dp"
+      android:id="@+id/category_tv"
+      android:layout_below="@+id/name_tv"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Cafe"
+      />
+
+    <TextView
+      android:id="@+id/address_tv"
+
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+
+      android:layout_marginStart="@dimen/dimen8dp"
+      android:layout_marginEnd="@dimen/dimen8dp"
+      android:layout_below="@+id/category_tv"
+      android:maxLines="2"
+      android:text="Majnu ka Tila , New Delhi"
+      android:textColor="@color/black"
+      android:textSize="@dimen/textspace16sp"/>
+
+    <TextView
+      android:layout_marginBottom="@dimen/dimen8dp"
+      android:layout_marginTop="@dimen/dimen16dp"
+      android:alpha="0.80"
+      android:textSize="12sp"
+      android:layout_marginStart="@dimen/dimen8dp"
+      android:id="@+id/time_tv"
+      android:layout_below="@+id/address_tv"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Closed. Opens tomorrow at 7 am."
+      />
+  </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
