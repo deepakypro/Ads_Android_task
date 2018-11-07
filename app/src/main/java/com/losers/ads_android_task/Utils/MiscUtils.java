@@ -34,6 +34,31 @@ public class MiscUtils {
 
   }
 
+  public static void setImage(ImageView imageToPicasso, String id) {
+    if (imageToPicasso == null) {
+      return;
+    }
+
+    Picasso.get()
+        .load(id)
+        .fit()
+        .into(imageToPicasso, new Callback() {
+          @Override
+          public void onSuccess() {
+
+          }
+
+          @Override
+          public void onError(Exception e) {
+
+            e.printStackTrace();
+          }
+
+
+        });
+
+  }
+
   public static int getListCount() {
     return 10;
   }

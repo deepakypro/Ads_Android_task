@@ -9,7 +9,7 @@
 
 
   <ImageButton
-    android:id="@+id/imageButton"
+    android:id="@+id/back_btn"
     android:layout_width="wrap_content"
 
     android:layout_height="wrap_content"
@@ -24,6 +24,7 @@
     app:layout_constraintTop_toTopOf="parent"/>
 
   <TextView
+    android:id="@+id/rest_name_tv"
     android:textStyle="bold"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -32,7 +33,7 @@
     android:text="AMA cafe"
     android:textColor="@color/black"
     android:textSize="@dimen/textspace16sp"
-    app:layout_constraintStart_toEndOf="@+id/imageButton"
+    app:layout_constraintStart_toEndOf="@+id/back_btn"
     app:layout_constraintTop_toTopOf="parent"/>
 
   <androidx.viewpager.widget.ViewPager
@@ -51,201 +52,203 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/viewPager">
-  <androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
-
-    <android.support.constraint.ConstraintLayout
+    <androidx.cardview.widget.CardView
       android:layout_width="match_parent"
-      android:layout_height="match_parent">
+      android:layout_height="match_parent"
 
-      <TextView
-        android:id="@+id/textView5"
+      >
+
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen8dp"
-        android:layout_marginStart="@dimen/dimen8dp"
-        android:layout_marginEnd="@dimen/dimen8dp"
-        android:maxLines="2"
-        android:text="Majnu ka Tila , New Delhi"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-      <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen8dp"
-        android:layout_marginStart="8dp"
-        android:text="Cafe, Juices"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+        <TextView
 
-      <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Closed"
-        android:textColor="@color/red"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+          android:id="@+id/short_adr_tv"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dimen8dp"
+          android:layout_marginStart="@dimen/dimen8dp"
+          android:layout_marginEnd="@dimen/dimen8dp"
+          android:maxLines="2"
+          android:text="Majnu ka Tila , New Delhi"
+          android:textSize="14sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"/>
 
-      <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Open tomorrow at 7am"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"/>
+        <TextView
+          android:id="@+id/cousine_tv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dimen8dp"
+          android:layout_marginStart="8dp"
+          android:text="Cafe, Juices"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/short_adr_tv"/>
 
+        <TextView
+          android:id="@+id/textView6"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dimen8dp"
+          android:layout_marginEnd="8dp"
+          android:text="Closed"
+          android:textColor="@color/red"
+          android:textSize="14sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/short_adr_tv"/>
 
-      <include
-        android:id="@+id/contact_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/layout_contact_details"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"/>
+        <TextView
+          android:id="@+id/textView7"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="8dp"
+          android:text="Open tomorrow at 7am"
+          android:textSize="14sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView6"/>
 
 
-      <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="CUISINES"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_details"/>
-
-      <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+        <include
+          android:id="@+id/contact_details"
+          layout="@layout/layout_contact_details"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView7"/>
 
 
-      <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen8dp"
-        android:layout_marginStart="8dp"
-        android:text="AVERAGE COST"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_rv"/>
+        <TextView
+          android:id="@+id/addr_tv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:text="Address"
+          android:textColor="@color/black"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/contact_details"/>
 
-      <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen8dp"
-        android:text="Rs 450 for two people (approx.)"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+        <TextView
+          android:id="@+id/complete_addr_tv"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
 
-      <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimen8dp"
-        android:alpha="0.50"
-        android:text="Exclusive of applicable taxes and charges , if any"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"/>
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/addr_tv"/>
 
 
-      <TextView
-        android:id="@+id/menu_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen8dp"
-        android:layout_marginStart="8dp"
-        android:text="MENU"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"/>
+        <TextView
+          android:id="@+id/textView9"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dimen8dp"
+          android:layout_marginStart="8dp"
+          android:text="AVERAGE COST"
+          android:textColor="@color/black"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/menu_rv"/>
 
-      <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/menu_rv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_tv"/>
+        <TextView
+          android:id="@+id/cost_tv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen8dp"
+          android:text="Rs 450 for two people (approx.)"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView9"/>
+
+        <TextView
+          android:id="@+id/textView11"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen8dp"
+          android:alpha="0.50"
+          android:text="Exclusive of applicable taxes and charges , if any"
+          android:textSize="12sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/cost_tv"/>
 
 
-      <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen8dp"
-        android:layout_marginStart="8dp"
-        android:text="MORE"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"/>
+        <TextView
+          android:id="@+id/menu_tv"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dimen8dp"
+          android:layout_marginStart="8dp"
+          android:text="MENU"
+          android:textColor="@color/black"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/complete_addr_tv"/>
 
-      <TextView
-        android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"/>
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/menu_rv"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/menu_tv"/>
 
-      <TextView
 
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen8dp"
-        android:layout_marginStart="8dp"
-        android:text="PHOTOS"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+        <TextView
+          android:id="@+id/textView12"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dimen8dp"
+          android:layout_marginStart="8dp"
+          android:text="MORE"
+          android:textColor="@color/black"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView11"/>
 
-      <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"/>
+        <TextView
+          android:id="@+id/textView13"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/dimen16dp"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView12"/>
 
-    </android.support.constraint.ConstraintLayout>
+        <TextView
 
-  </androidx.cardview.widget.CardView>
+          android:id="@+id/textView14"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="@dimen/dimen8dp"
+          android:layout_marginStart="8dp"
+          android:text="PHOTOS"
+          android:textColor="@color/black"
+          android:textSize="14sp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView13"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/textView14"/>
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

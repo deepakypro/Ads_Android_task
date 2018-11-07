@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity
     MiscUtils.setImage(mFoodImageview, R.drawable.category_food);
     MiscUtils.setImage(mMovieImageview, R.drawable.category_moview);
 
-    startActivity(new Intent(getApplicationContext(),FilterActivity.class));
+    startActivity(new Intent(getApplicationContext(),ChoiceActivity.class));
 //    setCategoryAdapter();
   }
 

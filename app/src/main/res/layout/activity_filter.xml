@@ -8,7 +8,7 @@
   tools:context=".Activity.FilterActivity">
 
   <TextView
-    android:id="@+id/textView"
+    android:id="@+id/skip_btn"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
     android:textColor="@color/black"
     android:textSize="36sp"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+    app:layout_constraintTop_toBottomOf="@+id/skip_btn"/>
 
   <TextView
     android:id="@+id/textView4"
@@ -52,13 +52,43 @@
     android:textSize="36sp"
     app:layout_constraintStart_toEndOf="@+id/textView4"
     app:layout_constraintTop_toBottomOf="@+id/textView3"/>
+
+
+  <TextView
+    android:id="@+id/percentage_sb_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:paddingTop="@dimen/dimen8dp"
+    android:paddingBottom="@dimen/dimen8dp"
+    android:paddingStart="@dimen/dimen16dp"
+    android:paddingEnd="@dimen/dimen16dp"
+    android:background="@drawable/custom_yellow_button"
+    android:text="0"
+    android:textColor="@color/white"
+    app:layout_constraintBottom_toTopOf="@+id/seekBar"
+    app:layout_constraintStart_toStartOf="parent"/>
+  <TextView
+    android:id="@+id/price_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimen8dp"
+    android:layout_marginStart="8dp"
+    android:text="Price matter"
+    android:textSize="14sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView4"/>
   <SeekBar
-    android:id="@+id/progressBar"
+    android:id="@+id/seekBar"
     style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
+    android:colorControlActivated="@color/primaryColor"
+    android:progressBackgroundTint="@color/background"
+    android:progressTint="@color/primaryLightColor"
 
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -86,6 +116,7 @@
 
 
   <Button
+    android:id="@+id/continue_btn"
     android:layout_width="match_parent"
 
     android:layout_height="wrap_content"

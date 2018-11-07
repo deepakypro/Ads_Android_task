@@ -54,25 +54,25 @@ public class CategoriesModel {
         "4bf58dd8d48988d17f941735"));
     mCategoriesModelList.add(
         new CategoriesModel(R.drawable.category_stadium, "Stadium", "4bf58dd8d48988d184941735"));
-    mCategoriesModelList
-        .add(new CategoriesModel(R.drawable.category_events, "Event", "4d4b7105d754a06373d81259"));
-    mCategoriesModelList
-        .add(new CategoriesModel(R.drawable.category_food, "Food", "4d4b7105d754a06374d81259"));
-    mCategoriesModelList.add(new CategoriesModel(R.drawable.category_nightlife, "Nightlife",
-        "4d4b7105d754a06376d81259"));
-    mCategoriesModelList.add(
-        new CategoriesModel(R.drawable.category_outdoor, "Outdoors", "4d4b7105d754a06377d81259"));
-    mCategoriesModelList.add(
-        new CategoriesModel(R.drawable.category_parking, "Parking", "4c38df4de52ce0d596b336e1"));
-    mCategoriesModelList.add(new CategoriesModel(R.drawable.category_sprituial, "Spiritual Center",
-        "4bf58dd8d48988d131941735"));
-
-    mCategoriesModelList
-        .add(new CategoriesModel(R.drawable.category_shop, "Clothing Store", "4d4b7105d754a06378d81259"));
-    mCategoriesModelList.add(
-        new CategoriesModel(R.drawable.category_travel, "Travel ", "4d4b7105d754a06379d81259"));
-    mCategoriesModelList
-        .add(new CategoriesModel(R.drawable.category_hotel, "Hotel", "4bf58dd8d48988d1fa931735"));
+//    mCategoriesModelList
+//        .add(new CategoriesModel(R.drawable.category_events, "Event", "4d4b7105d754a06373d81259"));
+//    mCategoriesModelList
+//        .add(new CategoriesModel(R.drawable.category_food, "Food", "4d4b7105d754a06374d81259"));
+//    mCategoriesModelList.add(new CategoriesModel(R.drawable.category_nightlife, "Nightlife",
+//        "4d4b7105d754a06376d81259"));
+//    mCategoriesModelList.add(
+//        new CategoriesModel(R.drawable.category_outdoor, "Outdoors", "4d4b7105d754a06377d81259"));
+//    mCategoriesModelList.add(
+//        new CategoriesModel(R.drawable.category_parking, "Parking", "4c38df4de52ce0d596b336e1"));
+//    mCategoriesModelList.add(new CategoriesModel(R.drawable.category_sprituial, "Spiritual Center",
+//        "4bf58dd8d48988d131941735"));
+//
+//    mCategoriesModelList
+//        .add(new CategoriesModel(R.drawable.category_shop, "Clothing Store", "4d4b7105d754a06378d81259"));
+//    mCategoriesModelList.add(
+//        new CategoriesModel(R.drawable.category_travel, "Travel ", "4d4b7105d754a06379d81259"));
+//    mCategoriesModelList
+//        .add(new CategoriesModel(R.drawable.category_hotel, "Hotel", "4bf58dd8d48988d1fa931735"));
 
     return mCategoriesModelList;
   }

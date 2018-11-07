@@ -48,6 +48,8 @@
     </activity>
     <activity android:name=".Activity.ProductDetailsActivity">
     </activity>
+    <activity android:name=".Activity.ChoiceActivity">
+    </activity>
   </application>
 
 </manifest>
